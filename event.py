@@ -8,16 +8,16 @@ import socket
 class SSHClientHandler(asyncore.dispatcher):
     def fixate_buffers(self, sock):
         state = sock.getsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF)
-        print(f"SO_RCVBUF: old {state}")
+        #print(f"SO_RCVBUF: old {state}")
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 1)
         new_state = sock.getsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF)
-        print(f"SO_RCVBUF: new {new_state}")
+        #print(f"SO_RCVBUF: new {new_state}")
 
         state = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
-        print(f"SO_SNDBUF: old {state}")
+        #print(f"SO_SNDBUF: old {state}")
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 1)
         state = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
-        print(f"SO_SNDBUF: new {state}")
+        #print(f"SO_SNDBUF: new {state}")
     def __init__(self, sock, addr, port):
         asyncore.dispatcher.__init__(self, sock)
         self.fixate_buffers(sock)
