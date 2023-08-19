@@ -9,7 +9,7 @@ do the follwing on Linux machines:
 
 > /usr/sbin/iptables -A FORWARD -p tcp -d 0.0.0.0 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
 
-> /usr/sbin/iptables -A PREROUTING -i eth0 -p tcp --dport 22 -j DNAT --to-destination <your ip-address here>:8022
+> /usr/sbin/iptables -A PREROUTING -i eth0 -p tcp --dport 22 -j DNAT --to-destination &lt;your ip-address here&gt;:8022
 
 And thing should work.
 
