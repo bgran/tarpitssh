@@ -3,7 +3,7 @@
 if __name__ == "__main__":
     from sys import exit
     def main():
-        from event3 import run
+        from event import run
         return(run())
     exit(main())
 
